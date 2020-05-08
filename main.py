@@ -1,14 +1,16 @@
 #!/usr/bin/env python3
 import logging.config
 import config
+from presentation.display import Display
 
 logger = logging.getLogger()
+display = Display()
 
 
 def _main():
     try:
         _setup_logging()
-        logger.debug("Hello world!")
+        display.start()
     except KeyboardInterrupt:
         pass
 
