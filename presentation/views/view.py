@@ -1,6 +1,9 @@
 class View(object):
 
-    listener = None
+    display = None
+
+    def __init__(self, display):
+        self.display = display
 
     def prepare(self):
         pass

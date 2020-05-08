@@ -2,15 +2,17 @@
 import logging.config
 import config
 from presentation.display import Display
+from presentation.display_presenter import DisplayPresenter
 
 logger = logging.getLogger()
 display = Display()
+displayPresenter = DisplayPresenter(display)
 
 
 def _main():
     try:
         _setup_logging()
-        display.start()
+        displayPresenter.start()
     except KeyboardInterrupt:
         pass
 
