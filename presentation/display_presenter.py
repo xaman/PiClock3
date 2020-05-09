@@ -42,7 +42,7 @@ class DisplayPresenter(object):
         view_type = position % 4
         if view_type in [0, 2]:
             return ClockView(self.display, self.GLOBAL_COLOR)
-        elif view_type == 3:
-            return DateView(self.display, self.GLOBAL_COLOR)
         elif view_type == 1:
+            return DateView(self.display, self.GLOBAL_COLOR)
+        elif view_type == 3:
             return WeatherView(self.display, self.GLOBAL_COLOR, self.weather_repository)

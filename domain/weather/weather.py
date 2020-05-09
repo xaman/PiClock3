@@ -1,14 +1,17 @@
-from domain.weather.location import Location
+from domain.weather.condition import Condition
+from domain.weather.temperature import Temperature
 
 
 class Weather(object):
 
     def __init__(self, json):
-        self.message = json["message"]
+        self.id = json["id"]
+        self.name = json["name"]
         self.code = json["cod"]
-        self.locations = []
-        for location in json["list"]:
-            self.locations.append(Location(location))
+        self.temperature = Temperature(json["main"])
+        self.conditions = []
+        for condition in json["weather"]:
+            self.conditions.append(Condition(condition))
 
     def __str__(self):
         return '%s(%s)' % (type(self).__name__, ', '.join('%s=%s' % item for item in vars(self).items()))

@@ -6,9 +6,9 @@ from domain.weather.weather import Weather
 
 
 class WeatherRequest(Request):
-    _ENDPOINT = "https://samples.openweathermap.org/data/2.5/find"
+    _ENDPOINT = "https://api.openweathermap.org/data/2.5/weather"
     _PARAMS = "?q={location}&units={unit}"
-    _TOKEN = "&appid=439d4b804bc8187953eb36d2a8c26a02"
+    _TOKEN = "&APPID=73d340307ca960288fcd451e50891737"
 
     def __init__(self, location_name, temperature_unit=TemperatureUnit.CELSIUS):
         url = self._ENDPOINT + self._get_params(location_name, temperature_unit) + self._TOKEN
