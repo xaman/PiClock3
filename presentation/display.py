@@ -6,7 +6,8 @@ from PIL import Image, ImageDraw, ImageFont
 
 
 class Display(object):
-    DEFAULT_BRIGHTNESS = 0.02
+    MINIMUM_BRIGHTNESS = 0.02
+    MAXIMUM_BRIGHTNESS = 1.0
     DEFAULT_ROTATION = 0
 
     logger = logging.getLogger()
@@ -16,9 +17,12 @@ class Display(object):
     def __init__(self):
         hat = UnicornHATMini()
         hat.set_rotation(self.DEFAULT_ROTATION)
-        hat.set_brightness(self.DEFAULT_BRIGHTNESS)
         self.display_width, self.display_height = hat.get_shape()
         self.unicornhatmini = hat
+
+    def set_brightness(self, brightness):
+        if self.MINIMUM_BRIGHTNESS <= brightness <= self.MAXIMUM_BRIGHTNESS:
+            self.unicornhatmini.set_brightness(brightness)
 
     def set_pixel(self, x, y, color):
         if 0 <= x < self.display_width and 0 <= y < self.display_height:

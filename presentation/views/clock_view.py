@@ -12,14 +12,13 @@ class ClockView(View):
     WAIT_SECONDS = 1
     FORMAT_HOUR = "%H"
     FORMAT_MINUTES = "%M"
-    COLOR = Colors.GREY
     DOTS_NO = [[0], [0], [0], [0], [0], [0], [0]]
     DOTS_YES = [[0], [0], [1], [0], [1], [0], [0]]
 
     logger = logging.getLogger("views")
 
-    def __init__(self, display):
-        super(ClockView, self).__init__(display)
+    def __init__(self, display, global_color):
+        super(ClockView, self).__init__(display, global_color)
 
     def show(self):
         hour = time.strftime(self.FORMAT_HOUR)
@@ -55,5 +54,5 @@ class ClockView(View):
     def _show_digit(self, x, y, digit):
         for row in range(0, len(digit)):
             for col in range(0, len(digit[0])):
-                color = Colors.BLACK if digit[row][col] == 0 else self.COLOR
+                color = Colors.BLACK if digit[row][col] == 0 else self.global_color
                 self.display.set_pixel(x + col, y + row, color)
