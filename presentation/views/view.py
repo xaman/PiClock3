@@ -4,7 +4,7 @@ import logging
 class View(object):
     display = None
     global_color = None
-    logger = logging.getLogger("views")
+    logger = logging.getLogger('presentation')
 
     def __init__(self, display, global_color):
         self.display = display

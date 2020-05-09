@@ -7,8 +7,10 @@ from presentation.views.weather_view import WeatherView
 
 
 class DisplayPresenter(object):
-    GLOBAL_COLOR = Colors.YELLOW
-    GLOBAL_BRIGHTNESS = 0.05
+    GLOBAL_COLOR = Colors.BROWN
+    GLOBAL_BRIGHTNESS = 0.1
+    LOCATION = "London"
+
     index = 0
     logger = logging.getLogger()
 
@@ -33,7 +35,7 @@ class DisplayPresenter(object):
         view_type = position % 4
         if view_type in [0, 2]:
             return ClockView(self.display, self.GLOBAL_COLOR)
-        elif view_type == 1:
-            return DateView(self.display, self.GLOBAL_COLOR)
         elif view_type == 3:
-            return WeatherView(self.display, self.GLOBAL_COLOR)
+            return DateView(self.display, self.GLOBAL_COLOR)
+        elif view_type == 1:
+            return WeatherView(self.display, self.GLOBAL_COLOR, self.LOCATION)

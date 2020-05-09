@@ -24,6 +24,7 @@ class Colors:
     WHITE = Color(255, 255, 255)
     RED = Color(255, 0, 0)
     PINK = Color(255, 51, 153)
+    BROWN = Color(100, 50, 0)
     YELLOW = Color(255, 255, 0)
     GREEN = Color(0, 255, 0)
     BLUE = Color(0, 0, 255)
