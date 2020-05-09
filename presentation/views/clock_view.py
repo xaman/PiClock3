@@ -1,5 +1,3 @@
-import logging
-
 from domain.colors import Colors
 from presentation.views.view import View
 import time
@@ -15,8 +13,6 @@ class ClockView(View):
     DOTS_NO = [[0], [0], [0], [0], [0], [0], [0]]
     DOTS_YES = [[0], [0], [1], [0], [1], [0], [0]]
 
-    logger = logging.getLogger("views")
-
     def __init__(self, display, global_color):
         super(ClockView, self).__init__(display, global_color)
 
@@ -27,7 +23,7 @@ class ClockView(View):
             # Changes dots blink every second
             dots = ":" if (i % 2 == 0) else " "
             formatted_time = hour + dots + minutes
-            self.logger.debug(self.__class__.__name__ + " - " + formatted_time)
+            self._log(formatted_time)
             self._show_time(formatted_time)
             time.sleep(self.WAIT_SECONDS)
 

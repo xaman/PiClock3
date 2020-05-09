@@ -8,7 +8,7 @@ from presentation.views.date_view import DateView
 class DisplayPresenter(object):
     GLOBAL_COLOR = Colors.YELLOW
     GLOBAL_BRIGHTNESS = 0.05
-    views_count = 0
+    index = 0
     logger = logging.getLogger()
 
     def __init__(self, display):
@@ -19,15 +19,17 @@ class DisplayPresenter(object):
         self.loop()
 
     def loop(self):
-        view = self.next_view()
+        current_view = self.create_view(self.index)
         while True:
-            view.show()
-            self.views_count += 1
-            view = self.next_view()
+            next_view = self.create_view(self.index + 1)
+            next_view.prepare()
+            current_view.show()
+            self.index += 1
+            current_view = next_view
 
-    def next_view(self):
-        pos = self.views_count % 2
-        if pos == 0:
+    def create_view(self, position):
+        type = position % 2
+        if type == 0:
             return ClockView(self.display, self.GLOBAL_COLOR)
-        elif pos == 1:
+        elif type == 1:
             return DateView(self.display, self.GLOBAL_COLOR)
