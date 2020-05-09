@@ -3,6 +3,7 @@ import logging
 from domain.colors import Colors
 from presentation.views.clock_view import ClockView
 from presentation.views.date_view import DateView
+from presentation.views.weather_view import WeatherView
 
 
 class DisplayPresenter(object):
@@ -24,12 +25,15 @@ class DisplayPresenter(object):
             next_view = self.create_view(self.index + 1)
             next_view.prepare()
             current_view.show()
+            current_view.clean()
             self.index += 1
             current_view = next_view
 
     def create_view(self, position):
-        type = position % 2
-        if type == 0:
+        view_type = position % 4
+        if view_type in [0, 2]:
             return ClockView(self.display, self.GLOBAL_COLOR)
-        elif type == 1:
+        elif view_type == 1:
             return DateView(self.display, self.GLOBAL_COLOR)
+        elif view_type == 3:
+            return WeatherView(self.display, self.GLOBAL_COLOR)

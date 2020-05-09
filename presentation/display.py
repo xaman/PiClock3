@@ -1,14 +1,16 @@
 import logging
 import time
-
 from unicornhatmini import UnicornHATMini
 from PIL import Image, ImageDraw, ImageFont
+
+from domain.colors import Colors
 
 
 class Display(object):
     MINIMUM_BRIGHTNESS = 0.02
     MAXIMUM_BRIGHTNESS = 1.0
     DEFAULT_ROTATION = 0
+    DEFAULT_COLOR = Colors.GREY
 
     logger = logging.getLogger()
     unicornhatmini = None
@@ -28,7 +30,7 @@ class Display(object):
         if 0 <= x < self.display_width and 0 <= y < self.display_height:
             self.unicornhatmini.set_pixel(x, y, color.r, color.g, color.b)
 
-    def show_text(self, text, color):
+    def show_text(self, text, color=DEFAULT_COLOR):
         # Measure the size of our text, we only really care about the width for the moment
         # but we could do line-by-line scroll if we used the height
         text_width, text_height = self.font.getsize(text)
