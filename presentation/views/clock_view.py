@@ -7,7 +7,7 @@ import time
 from resources.fonts.rounded_numbers import ROUNDED_NUMBERS
 
 
-class Clock(View):
+class ClockView(View):
     DURATION_SECONDS = 4
     WAIT_SECONDS = 1
     FORMAT_HOUR = "%H"
@@ -19,7 +19,7 @@ class Clock(View):
     logger = logging.getLogger("views")
 
     def __init__(self, display):
-        super(Clock, self).__init__(display)
+        super(ClockView, self).__init__(display)
 
     def show(self):
         hour = time.strftime(self.FORMAT_HOUR)

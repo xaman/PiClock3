@@ -1,6 +1,7 @@
 import logging
 
-from presentation.views.clock import Clock
+from presentation.views.clock_view import ClockView
+from presentation.views.date_view import DateView
 
 
 class DisplayPresenter(object):
@@ -21,4 +22,8 @@ class DisplayPresenter(object):
             view = self.next_view()
 
     def next_view(self):
-        return Clock(self.display)
+        pos = self.views_count % 2
+        if pos == 0:
+            return ClockView(self.display)
+        elif pos == 1:
+            return DateView(self.display)
