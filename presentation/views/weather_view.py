@@ -1,19 +1,15 @@
-from data.network.weather_request import WeatherRequest
 from presentation.views.view import View
 
 
 class WeatherView(View):
 
-    def __init__(self, display, global_color, location):
+    def __init__(self, display, global_color, repository):
         super(WeatherView, self).__init__(display, global_color)
-        self.location_name = location
-
-    def prepare(self):
-        request = WeatherRequest(self.location_name)
-        request.execute(self._on_weather)
-
-    def _on_weather(self, weather):
-        self.weather = weather
+        self.repository = repository
 
     def show(self):
-        self.display.show_text("London, sunny as fuck!", self.global_color)
+        if not self.repository.is_empty():
+            weather = self.repository.data
+            if len(weather.locations) > 0:
+                location = weather.locations[0]
+                self.display.show_text(location.name, self.global_color)

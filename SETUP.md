@@ -65,6 +65,7 @@ sudo pip3 install RPi.GPIO
 sudo pip3 install spidev
 sudo pip3 install gpiozero
 sudo pip3 install pycurl
+sudo pip3 install schedule
 ```
 
 Latest/development library from GitHub:

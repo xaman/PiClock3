@@ -10,9 +10,6 @@ class View(object):
         self.display = display
         self.global_color = global_color
 
-    def prepare(self):
-        self._log("Preparing...")
-
     def show(self):
         raise NotImplementedError("Class %s does not implement show()" % self.__class__.__name__)
 
