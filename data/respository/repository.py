@@ -12,3 +12,7 @@ class Repository(object):
 
     def is_empty(self):
         return self.data is None
+
+    def on_data(self, data):
+        self.data = data
+        self.logger.debug("Data: " + str(data))

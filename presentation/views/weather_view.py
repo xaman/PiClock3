@@ -16,13 +16,13 @@ class WeatherView(View):
         if self.repository.data:
             weather = self.repository.data
             city = weather.name
-            temperature = weather.temperature.value
+            temperature = int(weather.temperature.value)
             unit = self._get_temperature_unit()
             conditions = ""
             for condition in weather.conditions:
                 conditions += ", " + condition.description
             forecast = "%s, %s%s%s" % (city, temperature, unit, conditions)
-            self.logger.debug(forecast)
+            self._log(forecast)
             self.display.show_text(forecast, self.global_color)
 
     def _get_temperature_unit(self):

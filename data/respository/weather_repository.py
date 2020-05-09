@@ -18,8 +18,5 @@ class WeatherRepository(Repository):
 
     def _request_data(self):
         request = WeatherRequest(self.location_name)
-        request.execute(self._on_result)
+        request.execute(self.on_data)
 
-    def _on_result(self, data):
-        self.data = data
-        self.logger.debug("Data: " + str(data))
