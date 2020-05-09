@@ -12,8 +12,8 @@ from presentation.views.weather_view import WeatherView
 
 
 class DisplayPresenter(object):
-    GLOBAL_COLOR = Colors.BROWN
-    GLOBAL_BRIGHTNESS = 0.1
+    GLOBAL_COLOR = Colors.DARK_MAGENTA
+    GLOBAL_BRIGHTNESS = 1.0
     LOCATION = "London,uk"
     CURRENCY = Currencies.GBP
 
