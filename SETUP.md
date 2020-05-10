@@ -66,6 +66,7 @@ sudo pip3 install spidev
 sudo pip3 install gpiozero
 sudo pip3 install pycurl
 sudo pip3 install schedule
+sudo pip3 install tweepy
 ```
 
 Latest/development library from GitHub:

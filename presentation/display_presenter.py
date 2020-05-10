@@ -2,25 +2,29 @@ import logging
 import schedule
 
 from data.respository.currency_repository import CurrencyRepository
+from data.respository.trending_repository import TrendingRepository
 from data.respository.weather_repository import WeatherRepository
 from domain.colors import Colors
 from domain.currency.currencies import Currencies
 from presentation.views.clock_view import ClockView
 from presentation.views.currency_view import CurrencyView
 from presentation.views.date_view import DateView
+from presentation.views.trending_view import TrendingView
 from presentation.views.weather_view import WeatherView
 
 
 class DisplayPresenter(object):
     GLOBAL_COLOR = Colors.DARK_MAGENTA
-    GLOBAL_BRIGHTNESS = 1.0
+    GLOBAL_BRIGHTNESS = 0.8
     LOCATION = "London,uk"
     CURRENCY = Currencies.GBP
+    WOEID = "23424950"
 
     index = 0
     logger = logging.getLogger()
     weather_repository = WeatherRepository(LOCATION)
     currency_repository = CurrencyRepository(CURRENCY)
+    trending_repository = TrendingRepository(WOEID)
 
     def __init__(self, display):
         display.set_brightness(self.GLOBAL_BRIGHTNESS)
@@ -33,6 +37,7 @@ class DisplayPresenter(object):
     def _initialize_repositories(self):
         self.weather_repository.initialize()
         self.currency_repository.initialize()
+        self.trending_repository.initialize()
 
     def _loop(self):
         current_view = self.create_view(self.index)
@@ -49,7 +54,7 @@ class DisplayPresenter(object):
         schedule.run_pending()
 
     def create_view(self, position):
-        view_type = position % 6
+        view_type = position % 8
         if position % 2 == 0:
             return ClockView(self.display, self.GLOBAL_COLOR)
         elif view_type == 1:
@@ -59,3 +64,5 @@ class DisplayPresenter(object):
         elif view_type == 5:
             return CurrencyView(self.display, self.GLOBAL_COLOR, self.currency_repository, self.CURRENCY,
                                 Currencies.EUR)
+        elif view_type == 7:
+            return TrendingView(self.display, self.GLOBAL_COLOR, self.trending_repository)
