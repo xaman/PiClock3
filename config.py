@@ -1,4 +1,5 @@
 # Absolute path to the logging config file
 from pathlib import Path
 
-LOGGING_CONFIG = Path(__file__).parent / 'logging.conf'
+PROJECT_ROOT = Path(__file__).parent
+LOGGING_CONFIG = PROJECT_ROOT / 'logging.conf'

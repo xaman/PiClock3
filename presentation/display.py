@@ -1,8 +1,8 @@
 import logging
 import time
+import config
 from unicornhatmini import UnicornHATMini
 from PIL import Image, ImageDraw, ImageFont
-
 from domain.colors import Colors
 
 
@@ -14,7 +14,8 @@ class Display(object):
 
     logger = logging.getLogger()
     unicornhatmini = None
-    font = ImageFont.truetype("resources/ttf/5x7.ttf", 8)
+    font_path = str(config.PROJECT_ROOT / 'resources/ttf/5x7.ttf')
+    font = ImageFont.truetype(font_path, 8)
 
     def __init__(self):
         hat = UnicornHATMini()
