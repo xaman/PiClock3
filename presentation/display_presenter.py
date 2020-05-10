@@ -6,6 +6,7 @@ from data.respository.trending_repository import TrendingRepository
 from data.respository.weather_repository import WeatherRepository
 from domain.colors import Colors
 from domain.currency.currencies import Currencies
+from presentation.formatter.text_formatter import TextFormatter
 from presentation.views.clock_view import ClockView
 from presentation.views.currency_view import CurrencyView
 from presentation.views.date_view import DateView
@@ -14,7 +15,7 @@ from presentation.views.weather_view import WeatherView
 
 
 class DisplayPresenter(object):
-    GLOBAL_COLOR = Colors.DARK_MAGENTA
+    GLOBAL_COLOR = Colors.GOLD
     GLOBAL_BRIGHTNESS = 0.8
     LOCATION = "London,uk"
     CURRENCY = Currencies.GBP
@@ -65,4 +66,4 @@ class DisplayPresenter(object):
             return CurrencyView(self.display, self.GLOBAL_COLOR, self.currency_repository, self.CURRENCY,
                                 Currencies.EUR)
         elif view_type == 7:
-            return TrendingView(self.display, self.GLOBAL_COLOR, self.trending_repository)
+            return TrendingView(self.display, self.GLOBAL_COLOR, self.trending_repository, TextFormatter())
