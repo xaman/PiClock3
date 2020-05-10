@@ -9,7 +9,7 @@ from domain.colors import Colors
 class Display(object):
     MINIMUM_BRIGHTNESS = 0.02
     MAXIMUM_BRIGHTNESS = 1.0
-    DEFAULT_ROTATION = 0
+    DEFAULT_ROTATION = 180
     DEFAULT_COLOR = Colors.GREY
 
     logger = logging.getLogger()
