@@ -4,8 +4,8 @@ from presentation.views.view import View
 
 class WeatherView(View):
 
-    def __init__(self, display, global_color, repository):
-        super(WeatherView, self).__init__(display, global_color)
+    def __init__(self, display, repository):
+        super(WeatherView, self).__init__(display)
         self.repository = repository
 
     def show(self):
@@ -23,7 +23,7 @@ class WeatherView(View):
                 conditions += ", " + condition.description
             forecast = "%s, %s%s%s" % (city, temperature, unit, conditions)
             self._log(forecast)
-            self.display.show_text(forecast, self.global_color)
+            self.display.show_text(forecast)
 
     def _get_temperature_unit(self):
         return "C" if self.repository.temperature_unit == TemperatureUnit.CELSIUS else "F"

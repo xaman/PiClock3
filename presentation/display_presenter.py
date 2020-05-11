@@ -4,7 +4,6 @@ import schedule
 from data.respository.currency_repository import CurrencyRepository
 from data.respository.trending_repository import TrendingRepository
 from data.respository.weather_repository import WeatherRepository
-from domain.colors import Colors
 from domain.currency.currencies import Currencies
 from presentation.formatter.text_formatter import TextFormatter
 from presentation.views.clock_view import ClockView
@@ -15,8 +14,6 @@ from presentation.views.weather_view import WeatherView
 
 
 class DisplayPresenter(object):
-    GLOBAL_COLOR = Colors.GOLD
-    GLOBAL_BRIGHTNESS = 0.8
     LOCATION = "London,uk"
     CURRENCY = Currencies.GBP
     WOEID = "23424950"
@@ -28,7 +25,6 @@ class DisplayPresenter(object):
     trending_repository = TrendingRepository(WOEID)
 
     def __init__(self, display):
-        display.set_brightness(self.GLOBAL_BRIGHTNESS)
         self.display = display
 
     def start(self):
@@ -57,13 +53,12 @@ class DisplayPresenter(object):
     def create_view(self, position):
         view_type = position % 8
         if position % 2 == 0:
-            return ClockView(self.display, self.GLOBAL_COLOR)
+            return ClockView(self.display)
         elif view_type == 1:
-            return DateView(self.display, self.GLOBAL_COLOR)
+            return DateView(self.display)
         elif view_type == 3:
-            return WeatherView(self.display, self.GLOBAL_COLOR, self.weather_repository)
+            return WeatherView(self.display, self.weather_repository)
         elif view_type == 5:
-            return CurrencyView(self.display, self.GLOBAL_COLOR, self.currency_repository, self.CURRENCY,
-                                Currencies.EUR)
+            return CurrencyView(self.display, self.currency_repository, self.CURRENCY, Currencies.EUR)
         elif view_type == 7:
-            return TrendingView(self.display, self.GLOBAL_COLOR, self.trending_repository, TextFormatter())
+            return TrendingView(self.display, self.trending_repository, TextFormatter())

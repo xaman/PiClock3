@@ -3,12 +3,10 @@ import logging
 
 class View(object):
     display = None
-    global_color = None
     logger = logging.getLogger('presentation')
 
-    def __init__(self, display, global_color):
+    def __init__(self, display):
         self.display = display
-        self.global_color = global_color
 
     def show(self):
         raise NotImplementedError("Class %s does not implement show()" % self.__class__.__name__)
