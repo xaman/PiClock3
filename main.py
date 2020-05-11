@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 import logging.config
 import config
+from presentation.display.config.hourly_color_provider import HourlyColorProvider
 from presentation.display.display import Display
 from presentation.display.display_presenter import DisplayPresenter
 
 logger = logging.getLogger()
-display = Display()
+display = Display(color_provider=HourlyColorProvider())
 displayPresenter = DisplayPresenter(display)
 
 
