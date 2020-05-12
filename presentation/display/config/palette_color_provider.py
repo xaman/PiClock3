@@ -11,17 +11,10 @@ class PaletteColorProvider(ColorProvider):
         """
         super(PaletteColorProvider, self).__init__()
         self.palette = [
-            Colors.WHITE,
-            Colors.ULTRAMARINE_BLUE,
-            Colors.DODGER_BLUE,
             Colors.ELECTRIC_GREEN,
-            Colors.KELLY_GREEN,
-            Colors.MIKADO_YELLOW,
             Colors.SAFETY_ORANGE,
             Colors.COQUELICOT,
-            Colors.CANDY_APPLE_RED,
-            Colors.IMPERIAL_RED,
-            Colors.FUCHSIA
+            Colors.RED,
         ]
 
     def get_color(self):

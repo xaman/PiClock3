@@ -11,30 +11,30 @@ class HourlyColorProvider(ColorProvider):
         super(HourlyColorProvider, self).__init__()
 
         self.configs = {
-            0: Colors.FUCHSIA,
-            1: Colors.FUCHSIA,
-            2: Colors.FUCHSIA,
+            0: Colors.WHITE,
+            1: Colors.WHITE,
+            2: Colors.WHITE,
             3: Colors.WHITE,
             4: Colors.WHITE,
             5: Colors.WHITE,
             6: Colors.WHITE,
-            7: Colors.ULTRAMARINE_BLUE,
-            8: Colors.ULTRAMARINE_BLUE,
-            9: Colors.DODGER_BLUE,
-            10: Colors.DODGER_BLUE,
+            7: Colors.WHITE,
+            8: Colors.WHITE,
+            9: Colors.ELECTRIC_GREEN,
+            10: Colors.ELECTRIC_GREEN,
             11: Colors.ELECTRIC_GREEN,
-            12: Colors.ELECTRIC_GREEN,
-            13: Colors.KELLY_GREEN,
-            14: Colors.MIKADO_YELLOW,
-            15: Colors.SAFETY_ORANGE,
+            12: Colors.SAFETY_ORANGE,
+            13: Colors.SAFETY_ORANGE,
+            14: Colors.SAFETY_ORANGE,
+            15: Colors.COQUELICOT,
             16: Colors.COQUELICOT,
-            17: Colors.IMPERIAL_RED,
+            17: Colors.COQUELICOT,
             18: Colors.RED,
             19: Colors.RED,
-            20: Colors.FUCHSIA,
-            21: Colors.FUCHSIA,
-            22: Colors.FUCHSIA,
-            23: Colors.FUCHSIA
+            20: Colors.RED,
+            21: Colors.WHITE,
+            22: Colors.WHITE,
+            23: Colors.WHITE
         }
 
     def get_color(self):
