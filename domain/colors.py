@@ -33,5 +33,5 @@ class Colors:
     COQUELICOT = Color(255, 50, 0)
     CANDY_APPLE_RED = Color(255, 25, 0)
     IMPERIAL_RED = Color(255, 0, 50)
-    RED = Color(255, 0, 50)
+    RED = Color(255, 0, 0)
     FUCHSIA = Color(255, 0, 255)
