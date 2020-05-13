@@ -5,6 +5,7 @@ from data.respository.currency_repository import CurrencyRepository
 from data.respository.trending_repository import TrendingRepository
 from data.respository.weather_repository import WeatherRepository
 from domain.currency.currencies import Currencies
+from presentation.display.config.hourly_brightness_provider import HourlyBrightnessProvider
 from presentation.formatter.text_formatter import TextFormatter
 from presentation.views.clock_view import ClockView
 from presentation.views.currency_view import CurrencyView
@@ -26,6 +27,7 @@ class DisplayPresenter(object):
 
     def __init__(self, display):
         self.display = display
+        self.brightness_provider = HourlyBrightnessProvider(display)
 
     def start(self):
         self._initialize_repositories()
@@ -39,6 +41,7 @@ class DisplayPresenter(object):
     def _loop(self):
         current_view = self.create_view(self.index)
         while True:
+            self.brightness_provider.update_brightness()
             next_view = self.create_view(self.index + 1)
             current_view.show()
             current_view.clean()

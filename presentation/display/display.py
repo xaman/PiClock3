@@ -9,7 +9,7 @@ class Display(object):
     MINIMUM_BRIGHTNESS = 0.02
     MAXIMUM_BRIGHTNESS = 1.0
     DEFAULT_ROTATION = 180
-    DEFAULT_BRIGHTNESS = 1.0
+    DEFAULT_BRIGHTNESS = 0.2
 
     logger = logging.getLogger()
     unicornhatmini = None
