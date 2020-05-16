@@ -6,7 +6,6 @@ from presentation.display.config.hourly_color_provider import HourlyColorProvide
 from presentation.display.display import Display
 from presentation.display.display_presenter import DisplayPresenter
 
-logger = logging.getLogger()
 display = Display(color_provider=HourlyColorProvider())
 displayPresenter = DisplayPresenter(display)
 

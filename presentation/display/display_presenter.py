@@ -20,7 +20,7 @@ class DisplayPresenter(object):
     WOEID = "23424950"
 
     index = 0
-    logger = logging.getLogger()
+    logger = logging.getLogger('presentation')
     weather_repository = WeatherRepository(LOCATION)
     currency_repository = CurrencyRepository(CURRENCY)
     trending_repository = TrendingRepository(WOEID)

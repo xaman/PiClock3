@@ -12,7 +12,7 @@ class Display(object):
     DEFAULT_BRIGHTNESS = 0.2
     TEXT_DELAY = 0.03
 
-    logger = logging.getLogger()
+    logger = logging.getLogger('presentation')
     unicornhatmini = None
     font_path = str(config.PROJECT_ROOT / 'resources/ttf/5x7.ttf')
     font = ImageFont.truetype(font_path, 8)

@@ -45,7 +45,7 @@ LOGGING = {
         }
     },
     'root': {
-        'handlers': ['console', 'file', 'errors'],
+        'handlers': ['file', 'errors'],
         'level': 'DEBUG'
     }
 }
