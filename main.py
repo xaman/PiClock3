@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import logging.config
-import config
+
+from config import LOGGING
 from presentation.display.config.hourly_color_provider import HourlyColorProvider
 from presentation.display.display import Display
 from presentation.display.display_presenter import DisplayPresenter
@@ -20,7 +21,7 @@ def _main():
 
 def _setup_logging():
     try:
-        logging.config.fileConfig(config.LOGGING_CONFIG)
+        logging.config.dictConfig(LOGGING)
     except AttributeError:
         pass
 
