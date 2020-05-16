@@ -10,6 +10,7 @@ class Display(object):
     MAXIMUM_BRIGHTNESS = 1.0
     DEFAULT_ROTATION = 180
     DEFAULT_BRIGHTNESS = 0.2
+    TEXT_DELAY = 0.03
 
     logger = logging.getLogger()
     unicornhatmini = None
@@ -58,7 +59,7 @@ class Display(object):
             if offset_x + self.display_width > image.size[0]:
                 break
             self.unicornhatmini.show()
-            time.sleep(0.05)
+            time.sleep(self.TEXT_DELAY)
 
     def refresh(self):
         self.unicornhatmini.show()
