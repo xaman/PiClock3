@@ -61,6 +61,7 @@ sudo aptitude install python3-pil
 
 ```
 sudo pip3 install unicornhatmini
+sudo pip3 install scrollphathd
 sudo pip3 install RPi.GPIO
 sudo pip3 install spidev
 sudo pip3 install gpiozero
