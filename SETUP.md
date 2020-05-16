@@ -1,7 +1,8 @@
 # Raspberry Pi Zero - Unicorn Mini Hat
 
-## [Raspbian](https://www.raspberrypi.org/downloads/raspbian/)
-## [Python 3 library](https://github.com/pimoroni/unicornhatmini-python)
+### [Raspbian](https://www.raspberrypi.org/downloads/raspbian/)
+### [UnicornHatMini Library](https://github.com/pimoroni/unicornhatmini-python)
+### [Scroll pHat HD Library](https://github.com/pimoroni/scroll-phat-hd/tree/1b0625786b20d173205f1c461d0b66bba36b77d0)
 
 ### Prepare SD Card
 
@@ -54,20 +55,39 @@ network={
 ### Install Unicorn Hat
 
 ```
-sudo aptitude install python3
-sudo aptitude install python3-pip
-sudo aptitude install python3-pil
+# Main Python dependency
+sudo apt-get install python3
+# Package manager
+sudo apt-get install python3-pip
+# Virtual environments
+sudo apt-get install python3-venv
+# Python Images Library
+sudo apt-get install python3-pil
 ```
 
+[Creating a virtual Python environment](https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/#creating-a-virtual-environment)
+
+```
+# Create environment
+python3 -m venv env
+# Enter the environment
+source env/bin/activate
+```
+
+**Install project dependencies with PIP**
 ```
 sudo pip3 install unicornhatmini
-sudo pip3 install scrollphathd
 sudo pip3 install RPi.GPIO
 sudo pip3 install spidev
 sudo pip3 install gpiozero
 sudo pip3 install pycurl
 sudo pip3 install schedule
 sudo pip3 install tweepy
+sudo pip3 install numpy
+# Dependencies of the scroll pHat HD library
+sudo pip3 install scrollphathd
+sudo apt-get install libatlas-base-dev
+sudo apt-get install python3-smbus
 ```
 
 Latest/development library from GitHub:
