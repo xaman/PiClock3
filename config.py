@@ -24,13 +24,13 @@ LOGGING = {
         },
         'file': {
             'class': 'logging.FileHandler',
-            'filename': 'logs/piclock-log.log',
+            'filename': str(PROJECT_ROOT) + "/logs/piclock-log.log",
             'mode': 'w',
             'formatter': 'detailed'
         },
         'errors': {
             'class': 'logging.FileHandler',
-            'filename': 'logs/piclock-errors.log',
+            'filename': str(PROJECT_ROOT) + "/logs/piclock-errors.log",
             'mode': 'w',
             'formatter': 'detailed',
             'level': 'ERROR'
